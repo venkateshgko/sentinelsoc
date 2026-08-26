@@ -316,7 +316,7 @@ function SettingsPage() {
   };
 
   const changeTheme = (nextTheme: "dark" | "light") => {
-    if (!isAdmin || nextTheme === theme) return;
+    if (!canWrite || nextTheme === theme) return;
     setTheme(nextTheme);
     recordAdminLog(user?.username ?? "unknown", "SETTING_CHANGED", "Theme", `Theme changed to ${nextTheme}`);
   };
@@ -343,7 +343,7 @@ function SettingsPage() {
       {!canWrite && <div className="readonly-notice">Read-only access: settings changes are disabled for this account.</div>}
       {items.map(([key,title,desc])=><button className="setting-row" key={key} onClick={()=>toggle(key,title)} disabled={!canWrite}><div><strong>{title}</strong><span>{desc}</span></div>{enabled[key] ? <ToggleRight size={31} className="toggle-on"/> : <ToggleLeft size={31} className="toggle-off"/>}</button>)}
 
-      <div className={`setting-row theme-setting-row${!isAdmin ? " is-disabled" : ""}`}>
+      <div className={`setting-row theme-setting-row${!canWrite ? " is-disabled" : ""}`}>
         <div>
           <strong>Theme</strong>
           <span>Choose your preferred appearance for the entire SentinelSOC console.</span>
@@ -353,7 +353,7 @@ function SettingsPage() {
             type="button"
             className={theme === "dark" ? "active" : ""}
             onClick={() => changeTheme("dark")}
-            disabled={!isAdmin}
+            disabled={!canWrite}
             aria-pressed={theme === "dark"}
           >
             <Moon size={14} /> Dark
@@ -362,7 +362,7 @@ function SettingsPage() {
             type="button"
             className={theme === "light" ? "active" : ""}
             onClick={() => changeTheme("light")}
-            disabled={!isAdmin}
+            disabled={!canWrite}
             aria-pressed={theme === "light"}
           >
             <Sun size={14} /> Light

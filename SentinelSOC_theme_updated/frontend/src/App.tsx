@@ -39,16 +39,16 @@ function ProtectedLayout() {
 
 function App() {
   return (
-    <BrowserRouter>
-      <AuthProvider>
-        <ThemeProvider>
+    <ThemeProvider>
+      <BrowserRouter>
+        <AuthProvider>
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/*" element={<ProtectedLayout />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/*" element={<ProtectedLayout />} />
           </Routes>
-        </ThemeProvider>
-      </AuthProvider>
-    </BrowserRouter>
+        </AuthProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 

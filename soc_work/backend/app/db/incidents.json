@@ -1,0 +1,38 @@
+[
+  {
+    "id": "INC-2847",
+    "severity": "Critical",
+    "threat": "SQL Injection",
+    "source": "185.42.17.91",
+    "target": "api-gateway-01",
+    "time": "2 min ago",
+    "status": "Investigating"
+  },
+  {
+    "id": "INC-2846",
+    "severity": "High",
+    "threat": "Brute Force",
+    "source": "103.74.221.18",
+    "target": "auth-service",
+    "time": "8 min ago",
+    "status": "Active"
+  },
+  {
+    "id": "INC-2845",
+    "severity": "High",
+    "threat": "Port Scanning",
+    "source": "45.132.88.41",
+    "target": "web-server-02",
+    "time": "14 min ago",
+    "status": "Active"
+  },
+  {
+    "id": "INC-2844",
+    "severity": "Medium",
+    "threat": "Suspicious Login",
+    "source": "91.201.45.12",
+    "target": "admin-panel",
+    "time": "21 min ago",
+    "status": "Resolved"
+  }
+]
